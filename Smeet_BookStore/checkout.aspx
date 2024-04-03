@@ -1,34 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="checkout.aspx.cs" Inherits="Smeet_BookStore.checkout" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="checkout.aspx.cs" Inherits="Smeet_BookStore.checkout" %>
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title>Smeet BookStore</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="Content/bootstrap.min.css" rel="stylesheet" />
-    <link href="Content/site.css" rel="stylesheet" />
-    <script src="Scripts/jquery-1.9.1.min.js"></script>
-    <script src="Scripts/bootstrap.min.js"></script>
-</head>
-<body>
-        <div>
-            <nav class="navbar navbar-expand-lg bg-info fs-5 fw-bold text-dark ">
-                <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-                    <ul class="navbar-nav text-center">
-                        <li class="nav-item mx-2">
-                            <a class="nav-link" href="index.aspx">Home</a>
-                        </li>
-                        <li class="nav-item mx-2">
-                            <a class="nav-link" href="products.aspx">Products</a>
-                        </li>
-                        <li class="nav-item mx-2">
-                            <a class="nav-link" href="cart.aspx">Cart</a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </div>  
+<asp:Content ID="mainContent" ContentPlaceHolderID="mainContent" runat="server">
     <form id="form2" runat="server" class="container my-5">
         <h1 class="text-center mb-4">Checkout Form</h1>
 
@@ -145,5 +117,4 @@
             </div>
 
     </form>
-</body>
-</html>
+</asp:Content>

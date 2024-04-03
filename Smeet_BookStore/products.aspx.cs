@@ -16,12 +16,21 @@ namespace Smeet_BookStore
         SqlConnection conncection = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["firstName"] == null && Session["lastName"] == null)
+            {
+                Response.Write("<Script>alert('Oops!! You need to login first')</Script>");
+                Response.Write("<Script>window.location.href='login.aspx'</Script>");
+            }
+            else
+            {
+                welcomeMsg.Text = "Welcome, " + Session["firstName"];
+            }
             if(!IsPostBack)
             {
                 //binding dropdoow when page is loaded...
                 bindDropDownList();
             }
-        }https://localhost:44367/products.aspx.cs
+        }
 
         protected void bindDropDownList()
         {
@@ -51,6 +60,9 @@ namespace Smeet_BookStore
 
         protected void bookName_SelectedIndexChanged(object sender, EventArgs e)
         {
+            quan.Visible = true;
+            quantity.Visible = true;
+            quantity.Text = "1";
             int bookId = Convert.ToInt32(bookName.SelectedValue);
             conncection.Open();
             //when book will be selected then data will be shown on labels of book name, description, price and author...
@@ -67,7 +79,7 @@ namespace Smeet_BookStore
         { 
             //when add to cart button will be clicked id of book selected will be stored in session...
             int selectedBookId = Convert.ToInt32(bookName.SelectedValue);
-            Session["finalBookID"] += selectedBookId.ToString()+",";
+            Session["finalBookID"] += selectedBookId.ToString()+":"+quantity.Text.ToString()+",";
             Response.Write("<script>alert('Item Added...')</script>");
         }
 

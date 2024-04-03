@@ -23,42 +23,55 @@ namespace Smeet_BookStore
         }
 
         protected void checkCart()
-        {
-            //checking if seesion of bookIDs is null or not?
-            if (Session["finalBookID"] != null)
-            { 
-                String IDS = Session["finalBookID"].ToString();
-                //splitting the string of book id's by comma and assigning it to an array...
-                string[] singleID = IDS.Split(',');
+{
+    // Checking if session of bookIDs is null or not
+    if (Session["finalBookID"] != null)
+    {
+        string IDS = Session["finalBookID"].ToString();
+
+        // Splitting the string of book IDs by comma and assigning it to an array
+        string[] singleID = IDS.Split(',');
+
                 using (conncection)
                 {
                     conncection.Open();
 
-                    //iterating through IDS...
                     foreach (string ID in singleID)
                     {
-                        if (int.TryParse(ID, out int bookId))
+                        // Splitting each pair by colon to separate the two numbers
+                        string[] numbers = ID.Split(':');
+
+                        if (numbers.Length == 2 && int.TryParse(numbers[0], out int newID) && int.TryParse(numbers[1], out int quantity))
                         {
-                            //selecting the data of book according to book ids ordered using SqlDataAdapter object...
-                            SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM [dbo].[books] WHERE [id]=" + ID, conncection);
-                            //making new object to DataTable...
+                            // Selecting the data of a book according to book ID using SqlDataAdapter
+                            SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM [dbo].[books] WHERE [id]=" + newID, conncection);
+
+                            // Making a new DataTable
                             DataTable dt = new DataTable();
-                            //filling the table with data...
+
+                            // Filling the table with data
                             adapter.Fill(dt);
-                            //assigning name and price of book to a string and adding it to cartListBox...
-                            string bookName = dt.Rows[0]["bookName"].ToString();
-                            string bookPrice = dt.Rows[0]["bookPrice"].ToString();
-                            cartListBox.Items.Add(bookName + ", for " + bookPrice + "$");
+
+                            // Checking if any rows were returned
+                            if (dt.Rows.Count > 0)
+                            {
+                                // Assigning name and price of the book to a string and adding it to cartListBox
+                                string bookName = dt.Rows[0]["bookName"].ToString();
+                                string bookPrice = dt.Rows[0]["bookPrice"].ToString();
+                                double finalPrice = Convert.ToDouble(dt.Rows[0]["bookPrice"]) * Convert.ToDouble(quantity);
+                                cartListBox.Items.Add(bookName + " for " + bookPrice + "$" + " ("+bookPrice+"*"+quantity+")"+" Total = "+finalPrice);
+                            }
                         }
                     }
                 }
-            }
-            else
-            {
-                //if cart is empty following error will be shown...
-                errorMessageCart.Text = "Cart is empty...";
-            }
-        }
+    }
+    else
+    {
+        // If the cart is empty, show an error message
+        errorMessageCart.Text = "Cart is empty...";
+    }
+}
+
 
         protected void btnEmpty_Click(object sender, EventArgs e)
         {

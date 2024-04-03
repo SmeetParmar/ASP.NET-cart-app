@@ -1,36 +1,15 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="Smeet_BookStore.index" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="index.aspx.cs" Inherits="Smeet_BookStore.index" %>
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title>Smeet BookStore</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="Content/bootstrap.min.css" rel="stylesheet" />
-    <link href="Content/site.css" rel="stylesheet" />
-    <script src="Scripts/jquery-1.9.1.min.js"></script>
-    <script src="Scripts/bootstrap.min.js"></script>
-</head>
-<body>
+<asp:Content ID="mainContent" ContentPlaceHolderID="mainContent" runat="server">
     <form id="form1" runat="server">
-        <div>
-            <nav class="navbar navbar-expand-lg bg-info  fs-5 fw-bold text-dark ">
-                <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-                    <ul class="navbar-nav text-center">
-                        <li class="nav-item mx-2">
-                            <a class="nav-link" href="index.aspx">Home</a>
-                        </li>
-                        <li class="nav-item mx-2">
-                            <a class="nav-link" href="products.aspx">Products</a>
-                        </li>
-                        <li class="nav-item mx-2">
-                            <a class="nav-link" href="cart.aspx">Cart</a>
-                        </li>
-                    </ul>
+        <div class="container mt-5 ">
+            <div class="cover-photo">
+                <div class="cover-text">
+                    <h1>Unlock the door to boundless worlds at our bookstore, where every shelf holds the promise of discovery and 
+                        every page invites you on an unforgettable journey.</h1>
+                    <a href="products.aspx" class="menu-button btn btn-primary mt-4">Explore Books</a>
                 </div>
-            </nav>
-            <h1>Index</h1>
+            </div>
         </div>
     </form>
-</body>
-</html>
+</asp:Content>

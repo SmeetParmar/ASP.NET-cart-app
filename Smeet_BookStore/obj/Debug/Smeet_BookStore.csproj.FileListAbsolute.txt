@@ -57,3 +57,5 @@ C:\Conestoga College\Sem3\NET\Smeet_BookStore\Smeet_BookStore\obj\Debug\Smeet_Bo
 C:\Conestoga College\Sem3\NET\Smeet_BookStore\Smeet_BookStore\obj\Debug\Smeet_BookStore.csproj.CopyComplete
 C:\Conestoga College\Sem3\NET\Smeet_BookStore\Smeet_BookStore\obj\Debug\Smeet_BookStore.dll
 C:\Conestoga College\Sem3\NET\Smeet_BookStore\Smeet_BookStore\obj\Debug\Smeet_BookStore.pdb
+C:\Conestoga College\Sem3\NET\Smeet_BookStore\Smeet_BookStore\bin\Microsoft.AspNet.FriendlyUrls.dll
+C:\Conestoga College\Sem3\NET\Smeet_BookStore\Smeet_BookStore\bin\Microsoft.AspNet.FriendlyUrls.xml

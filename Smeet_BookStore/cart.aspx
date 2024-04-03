@@ -1,36 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="cart.aspx.cs" Inherits="Smeet_BookStore.cart" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="cart.aspx.cs" Inherits="Smeet_BookStore.cart" %>
 
-<!DOCTYPE html>
+<asp:Content ID="mainContent" ContentPlaceHolderID="mainContent" runat="server">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title>Smeet BookStore</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="Content/bootstrap.min.css" rel="stylesheet" />
-    <link href="Content/site.css" rel="stylesheet" />
-    <script src="Scripts/jquery-1.9.1.min.js"></script>
-    <script src="Scripts/bootstrap.min.js"></script>
-</head>
-<body>
-    <nav class="navbar navbar-expand-lg bg-info fs-5 fw-bold text-dark ">
-    <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-        <ul class="navbar-nav text-center">
-            <li class="nav-item mx-2">
-                <a class="nav-link" href="index.aspx">Home</a>
-            </li>
-            <li class="nav-item mx-2">
-                <a class="nav-link" href="products.aspx">Products</a>
-            </li>
-            <li class="nav-item mx-2">
-                <a class="nav-link" href="cart.aspx">Cart</a>
-            </li>
-        </ul>
-    </div>
-</nav>
-    <div class="container">
-    <main>
+
         <form id="form1" runat="server" class="form-horizontal">
-       
+        <div class="container">
             <div class="row"><%-- row 1 --%>
                 <div class="col-sm-12"><h1>Your Cart</h1></div>
                 <asp:Label runat="server" ID="errorMessageCart" Text=""></asp:Label>
@@ -66,9 +40,7 @@
                     </div>
                 </div>
             </div><%-- end of row 2 --%>
-
+            </div>
         </form>
         
-    </main></div>
-</body>
-</html>
+</asp:Content>
